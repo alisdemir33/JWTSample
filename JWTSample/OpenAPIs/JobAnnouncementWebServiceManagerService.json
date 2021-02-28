@@ -1,0 +1,26 @@
+<html>
+<head><title>
+Web Services
+</title></head>
+<body>
+<h1>Web Services</h1>
+<table width='100%' border='1'>
+<tr>
+<td>
+Endpoint
+</td>
+<td>
+Information
+</td>
+</tr>
+<tr>
+<td>
+<table border="0"><tr><td>Service Name:</td><td>{http://ws.jobannouncement.humanresources.sydgm.g222.uekae.tubitak.gov.tr/}JobAnnouncementWebServiceManagerService</td></tr><tr><td>Port Name:</td><td>{http://ws.jobannouncement.humanresources.sydgm.g222.uekae.tubitak.gov.tr/}JobAnnouncementWebServiceManagerPort</td></tr></table>
+</td>
+<td>
+<table border="0"><tr><td>Address:</td><td>http://aspbtest.ailevecalisma.gov.tr:80/JobAnnouncementWebServiceManager/JobAnnouncementWebServiceManagerService</td></tr><tr><td>WSDL:</td><td><a href="http://aspbtest.ailevecalisma.gov.tr:80/JobAnnouncementWebServiceManager/JobAnnouncementWebServiceManagerService?wsdl">http://aspbtest.ailevecalisma.gov.tr:80/JobAnnouncementWebServiceManager/JobAnnouncementWebServiceManagerService?wsdl</a></td></tr><tr><td>Implementation class:</td><td>tr.gov.tubitak.uekae.g222.sydgm.humanresources.jobannouncement.ws.JobAnnouncementWebServiceManager</td></tr></table>
+</td>
+</tr>
+</table>
+</body>
+</html>

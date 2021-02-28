@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Gq6kF+RpMLizyvKV8a8WXJXO/m5OPid/wdsVevHBeOnRAwttjt06TTbQJbq5r3wRa6QR6NfQOABodY1JbZQW7g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\24667\\Source\\GithubRepo\\JWTSample\\Services\\Services.csproj",
+  "expectedPackageFiles": [
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

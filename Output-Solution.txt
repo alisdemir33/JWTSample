@@ -1,0 +1,2 @@
+﻿C:\Users\alisaip\AlisWebApiRepo\jwt-sample-master\jwt-sample-master\JWTSample\JWTSample\JWTSample.csproj : error  : The project file could not be loaded. Name cannot begin with the '<' character, hexadecimal value 0x3C. Line 13, position 2.  C:\Users\alisaip\AlisWebApiRepo\jwt-sample-master\jwt-sample-master\JWTSample\JWTSample\JWTSample.csproj
+
