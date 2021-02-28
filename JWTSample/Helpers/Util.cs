@@ -105,7 +105,7 @@ namespace VakifIlan
                 }
             }
 
-            return isBetween;
+            return true;// isBetween;
         }
 
         private static string ReplaceUnvanText(string sText)

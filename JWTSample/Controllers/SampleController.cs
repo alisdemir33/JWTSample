@@ -104,6 +104,55 @@ namespace JWTSample.Controllers
             }
         }
 
+       // [HttpGet]
+        //public HttpResponseMessage GetVakifListByPagedList(int pageNumber = 1, int pageSize = 10, string cityFilter = "", string foundationFilter = "")
+        //{
+        //    //sdfsdf
+        //    try
+        //    {
+        //        using (CONTOSOEntities db = new CONTOSOEntities())
+        //        {
+        //            IQueryable<Foundation> query = db.Foundation.AsQueryable();
+
+        //            if (!string.IsNullOrEmpty(cityFilter))
+
+        //                query = query.Where(vakif => vakif.Province.ProvinceName.Contains(cityFilter)).AsQueryable();
+
+        //            if (!string.IsNullOrEmpty(foundationFilter))
+
+        //                query = query.Where(vakif => vakif.County.CountyName.Contains(foundationFilter)).AsQueryable();
+
+        //            query = query.OrderBy(a => a.Province.ProvinceName).ThenBy(a => a.County.CountyName);
+
+        //            PagedList<Foundation> returnList = new PagedList<Foundation>(query, pageNumber, pageSize);
+
+        //            IEnumerable<FoundationViewModel> fvm = new List<FoundationViewModel>();
+
+        //            fvm = returnList.Select(f => new FoundationViewModel
+        //            {
+        //                ID = f.ID,
+        //                FName = f.FName,
+        //                CountyName = f.County.CountyName,
+        //                ProvinceName = f.Province.ProvinceName,
+        //                Address = f.Address,
+        //                Phone = f.Phone,
+        //                Fax = f.Fax,
+        //                EMail = f.EMail
+        //            });
+
+        //            PagedList<FoundationViewModel> list = new PagedList<FoundationViewModel>(fvm, returnList.PagingMetaData);
+
+        //            PagedListContainer<FoundationViewModel> pgList = new PagedListContainer<FoundationViewModel>(list);
+        //            return Request.CreateResponse(HttpStatusCode.OK, pgList);
+        //        }
+        //    }
+
+        //    catch (Exception e)
+        //    {
+        //        return Request.CreateResponse(HttpStatusCode.InternalServerError);
+        //    }
+        //}
+
 
         /* Deneme 
 
