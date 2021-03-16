@@ -383,10 +383,15 @@ namespace JWTSample.Services.User
             System.Globalization.CultureInfo clsCulture = new System.Globalization.CultureInfo("tr-TR");
             VakifDb db = new VakifDb(_appSettings.ConnStr);
             WSHelper wsHelper = new WSHelper(db, _appSettings);
+            var sonuc = db.GetKullanici(basvuru.PersonelID);
+            basvuru.TcKimlikNo = sonuc.Veri.Rows[0]["TCKimlikNo"].ToString();
+            basvuru.EPosta = sonuc.Veri.Rows[0]["EPosta"].ToString().Replace("'", " ");
             BusinessLayer bHelper = new BusinessLayer(db, _appSettings, basvuru);            
-            ServiceResult<string> osymResult = bHelper.checkOsymPuan();
-            if (osymResult.ResultCode == 1)
-                return osymResult;           
+            
+            //ServiceResult<string> osymResult = bHelper.checkOsymPuan();
+            //if (osymResult.ResultCode == 1)
+            //    return osymResult;           
+            
             try
             {                
               
@@ -398,14 +403,18 @@ namespace JWTSample.Services.User
 
                 islemSonucu clsIslemSonucu = new islemSonucu();
                 mesaj clsMesaj = new mesaj();
-             
-                clsKisiselBilgiler.tcKimlikNoField = basvuru.TcKimlikNo;
-                clsKisiselBilgiler.adField = basvuru.Ad;
-                clsKisiselBilgiler.soyadField = basvuru.Soyad;
-                clsKisiselBilgiler.dogumYeriField = basvuru.DogumYeri;
-                clsKisiselBilgiler.dogumTarihiField = Convert.ToDateTime(basvuru.DogumTarihi);
-                clsKisiselBilgiler.medeniDurumuField = Util.getMedeniHalEnumFromStr(basvuru.MedeniDurumu);
-                clsKisiselBilgiler.cinsiyetField = Util.getCinsiyetEnumFromStr(basvuru.Cinsiyet);
+
+                
+                
+
+
+                clsKisiselBilgiler.tcKimlikNoField = sonuc.Veri.Rows[0]["TCKimlikNo"].ToString();
+                clsKisiselBilgiler.adField = sonuc.Veri.Rows[0]["Adi"].ToString();
+                clsKisiselBilgiler.soyadField = sonuc.Veri.Rows[0]["Soyadi"].ToString();
+                clsKisiselBilgiler.dogumYeriField = sonuc.Veri.Rows[0]["DogumYeri"].ToString();
+                clsKisiselBilgiler.dogumTarihiField = (DateTime)(sonuc.Veri.Rows[0]["DogumTarihi"]);
+                clsKisiselBilgiler.medeniDurumuField = Util.getMedeniHalEnumFromStr(sonuc.Veri.Rows[0]["MedeniHali"].ToString());
+                clsKisiselBilgiler.cinsiyetField = Util.getCinsiyetEnumFromStr(sonuc.Veri.Rows[0]["Cinsiyeti"].ToString());
 
                 ServiceResult<string[]> adresResult = bHelper.checkAdresCode();
                 if (adresResult.ResultCode == 1)
@@ -424,7 +433,7 @@ namespace JWTSample.Services.User
                 clsKisiselBilgiler.ilceField = clsIlceBilgisi;
                
                
-                clsDigerBilgiler.ePostaField = basvuru.EPosta.Replace("'", " ");
+                clsDigerBilgiler.ePostaField = sonuc.Veri.Rows[0]["EPosta"].ToString().Replace("'", " ");
 
                 if (!string.IsNullOrEmpty(basvuru.EvTelNumarasi))
                 {

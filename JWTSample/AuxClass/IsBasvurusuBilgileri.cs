@@ -10,22 +10,23 @@ namespace JWTSample.AuxClass
     {
         public string PersonelID { get; set; }
         public long IlanID { get; set; }
-        public string BasvuruNo { get; set; }
-        public string IlanIlceID { get; set; }
-        public string IlanIlID { get; set; }
-        public string UnvanID { get; set; }
+        //public string BasvuruNo { get; set; }
+        //public string IlanIlceID { get; set; }
+        //public string IlanIlID { get; set; }
+        //public string UnvanID { get; set; }
+        public string Ip { get; set; }      
+        
+        public string TcKimlikNo { get; set; }        
+        //public string Ad { get; set; }     
+        //public string Soyad { get; set; }
+        //public string Cinsiyet { get; set; }
+        //public DateTime DogumTarihi { get; set; }
+        //public string DogumYeri { get; set; }
+        //public string MedeniDurumu { get; set; }
+       public string EPosta { get; set; }
 
-        public string Ip { get; set; }
-       // public string IlceID{ get; set; }
-        public DateTime DogumTarihi { get; set; }
-        public string DogumYeri { get; set; }
-        public string TcKimlikNo { get; set; }
-        public string MedeniDurumu { get; set; }
-        public string Ad { get; set; }
-        public string Cinsiyet { get; set; }
-        public string Soyad { get; set; }
+
         public string EgitimDurumu { get; set; }
-        public string EPosta { get; set; }
         public string EvTelNumarasi { get; set; }
         public string KpssGirisYili { get; set; }
         public string KpssPuani { get; set; }

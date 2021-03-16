@@ -72,15 +72,15 @@ namespace VakifIlan
 
         }
 
-        public NIslemSonuc<DataTable> GetKullanici(string tcNo)
+        public NIslemSonuc<DataTable> GetKullanici(string ID)
         {
             DataTable dt = null;
-            string strSQL = " SET DATEFORMAT DMY    SELECT * FROM Personel WHERE TCKimlikNo=@TcKimlikNo";
+            string strSQL = " SET DATEFORMAT DMY    SELECT * FROM Personel WHERE ID=@ID";
             try
             {
                // DataBaseProvider db = new DataBaseProvider();
 
-                db.AddParameter("@TCKimlikNo", DbType.String, tcNo);
+                db.AddParameter("@ID", DbType.String, ID);
 
 
                 SqlDataReader dr = db.ExecuteReader(strSQL, CommandType.Text);

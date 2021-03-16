@@ -62,7 +62,7 @@ namespace JWTSample.Helpers
                 string[] sAddress = new string[0];
                 try
                 {
-                    sKpssPuan = wsHelper.getOsymPuan(basvuru.TcKimlikNo, basvuru.KpssGirisYili.ToString(), "PUAN_3");
+                    sKpssPuan = wsHelper.getOsymPuanWsIntra(basvuru.TcKimlikNo, basvuru.KpssGirisYili.ToString(), "PUAN_3");
                 }
                 catch (Exception exc)
                 {
@@ -111,8 +111,6 @@ namespace JWTSample.Helpers
                             ResultData = null,
                             ResultExplanation = "Girilen yıla ait KPSS Puanınız 60 dan küçük.<br/>Bu ünvana başvurmak için puanınız 60 dan büyük olmalı"
                         };
-
-
                     }
                 }
             }
@@ -125,8 +123,6 @@ namespace JWTSample.Helpers
                     ResultData = null,
                     ResultExplanation = "Beklenmeyen Hata Oluştu!"
                 };
-
-
             }
 
             return new ServiceResult<string>()
@@ -136,8 +132,6 @@ namespace JWTSample.Helpers
                 ResultData = sKpssPuan,
                 ResultExplanation = "Puan Kontrolü Başarılı"
             };
-
-
         }
 
 
@@ -157,59 +151,59 @@ namespace JWTSample.Helpers
              "127.0.0.1",
              basvuru.TecilTarihi.ToString(),
              sAddress);
-            if (sonuc.BasariliMi)
-            {
-                if (basvuru.BasvuruNo != "" && basvuru.BasvuruNo != "0")
-                {
-                    db.SetPersonelBasvuru(basvuru.PersonelID, basvuru.IlanID.ToString(), basvuru.BasvuruNo);
-                }
-            }
-            else
-            {
-                if (sonuc.HataBilgi != null)
-                {
-                    db.AddPersonelSqlLog(basvuru.PersonelID, sonuc.HataBilgi.HataMesaj, "127.0.0.1");
-                }
-            }
+            //if (sonuc.BasariliMi)
+            //{
+            //    if (basvuru.BasvuruNo != "" && basvuru.BasvuruNo != "0")
+            //    {
+            //        db.SetPersonelBasvuru(basvuru.PersonelID, basvuru.IlanID.ToString(), basvuru.BasvuruNo);
+            //    }
+            //}
+            //else
+            //{
+            //    if (sonuc.HataBilgi != null)
+            //    {
+            //        db.AddPersonelSqlLog(basvuru.PersonelID, sonuc.HataBilgi.HataMesaj, "127.0.0.1");
+            //    }
+            //}
         }
 
-        private void InsertLog(IsBasvurusuBilgileri basvuru, string sError)
-        {
-            var sonuc = db.AddPersonelError(basvuru.PersonelID,
-               basvuru.IlanIlID,
-                basvuru.IlanIlceID, //cmbIlce.SelectedValue,
-                basvuru.UnvanID,
-                basvuru.IlanID.ToString(),              
-                basvuru.BasvuruNo,
-                sError,
-                basvuru.Ip);
-            if (!sonuc.BasariliMi)
-            {
-                if (sonuc.HataBilgi != null)
-                {
-                    db.AddPersonelSqlLog(basvuru.PersonelID, "Personel Error -" + sonuc.HataBilgi.HataMesaj, basvuru.Ip);
-                }
+        //private void InsertLog(IsBasvurusuBilgileri basvuru, string sError)
+        //{
+        //    var sonuc = db.AddPersonelError(basvuru.PersonelID,
+        //       basvuru.IlanIlID,
+        //        basvuru.IlanIlceID, //cmbIlce.SelectedValue,
+        //        basvuru.UnvanID,
+        //        basvuru.IlanID.ToString(),              
+        //        basvuru.BasvuruNo,
+        //        sError,
+        //        basvuru.Ip);
+        //    if (!sonuc.BasariliMi)
+        //    {
+        //        if (sonuc.HataBilgi != null)
+        //        {
+        //            db.AddPersonelSqlLog(basvuru.PersonelID, "Personel Error -" + sonuc.HataBilgi.HataMesaj, basvuru.Ip);
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
 
-        private void InsertBasvuru(IsBasvurusuBilgileri basvuru)
-        {
-            var sonuc = db.AddPersonelBasvuru(basvuru.PersonelID,
-                 basvuru.IlanIlID,
-                basvuru.IlanIlceID,
-                  basvuru.UnvanID,
-                 basvuru.IlanID.ToString(),
-               basvuru.Ip);
-            if (!sonuc.BasariliMi)
-            {
-                if (sonuc.HataBilgi != null)
-                {
-                    db.AddPersonelSqlLog(basvuru.PersonelID, "Personel Basvuru -" + sonuc.HataBilgi.HataMesaj, basvuru.Ip);
-                }
-            }
-        }
+        //private void InsertBasvuru(IsBasvurusuBilgileri basvuru)
+        //{
+        //    var sonuc = db.AddPersonelBasvuru(basvuru.PersonelID,
+        //         basvuru.IlanIlID,
+        //        basvuru.IlanIlceID,
+        //          basvuru.UnvanID,
+        //         basvuru.IlanID.ToString(),
+        //       basvuru.Ip);
+        //    if (!sonuc.BasariliMi)
+        //    {
+        //        if (sonuc.HataBilgi != null)
+        //        {
+        //            db.AddPersonelSqlLog(basvuru.PersonelID, "Personel Basvuru -" + sonuc.HataBilgi.HataMesaj, basvuru.Ip);
+        //        }
+        //    }
+        //}
 
 
 

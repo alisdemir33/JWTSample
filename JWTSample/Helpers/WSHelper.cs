@@ -10,6 +10,9 @@ using System.ServiceModel.Description;
 using System.Threading.Tasks;
 using VakifIlan;
 using System.Data;
+using System.ServiceModel;
+using System.ServiceModel.Channels;
+using OSYMWsintra;
 
 namespace JWTSample.Helpers
 {
@@ -30,8 +33,9 @@ namespace JWTSample.Helpers
 
 
         public ServiceResult<string> wsBasvuruKaydet(IsBasvurusu clsIsBasvuru, long ilanNo)
-        {
-
+        {      
+           
+            
             try
             {
                 Service1Client service1Client = new Service1Client();
@@ -61,47 +65,165 @@ namespace JWTSample.Helpers
             return new ServiceResult<string>() { isSuccessfull = true, ResultCode = 0, ResultData = null, ResultExplanation = "Başvuru Güncellendi!" };
         }
 
+        //public string getOsymPuan(string sTCNo, string sPuanYil, string sPuanTur)
+        //{
+        //    TOsym.OSYMSoapClient clsOsymSonuc = new TOsym.OSYMSoapClient(TOsym.OSYMSoapClient.EndpointConfiguration.OSYMSoap);
+        //    TOsym.AuthHeader Authentication = new TOsym.AuthHeader();
 
 
-        public string getOsymPuan(string sTCNo, string sPuanYil, string sPuanTur)
+        //    //TOsym.ServisSonucOfArrayOfSinavSonucTemelBilgiYKHEH_S_P5 clsSonucTemelBilgi = new TOsym.ServisSonucOfArrayOfSinavSonucTemelBilgiYKHEH_S_P5();
+        //    //TOsym.ServisSonucOfSonucBilgiXmlYKHEH_S_P5 clsSonucBilgiXML = new TOsym.ServisSonucOfSonucBilgiXmlYKHEH_S_P5();
+
+        //    TOsym.SonucGetirXmlRequest xmlReq = new TOsym.SonucGetirXmlRequest();
+
+        //    TOsym.SonucGetirRequest req = new TOsym.SonucGetirRequest();
+        //    req.tcKimlikNo = sTCNo;
+        //    req.sinavYili = int.Parse(sPuanYil);
+        //    req.sinavGrupId = 6;
+
+
+        //    Authentication.Username = _appSettings.Nvi_User_Name;
+        //    Authentication.Password = _appSettings.Nvi_Password;
+        //    Authentication.KullaniciBilgisi = "Vakıf Ilan - " + sTCNo;
+        //    Authentication.SessionID = Guid.NewGuid().ToString();
+        //    req.AuthHeader = Authentication;
+        //    // clsOsymSonuc.AuthHeaderValue = Authentication;
+
+
+        //    DataSet ds = new DataSet();
+        //    DataTable dt = new DataTable();
+
+        //    bool KpssLisansSonucVarmi = false;
+        //    int KpssLisansSonucId = 0;
+        //    string sPuan = "-1";
+
+        //    try
+        //    {
+        //        TOsym.SonucGetirResponse clsSonucTemelBilgiResp = clsOsymSonuc.SonucGetir(req);
+
+        //        if (clsSonucTemelBilgiResp.SonucGetirResult.Sonuc.Length > 0)
+        //        {
+        //            foreach (var item in clsSonucTemelBilgiResp.SonucGetirResult.Sonuc)
+        //            {
+        //                if (item.Ad.IndexOf("KPSS Lisans") >= 0 || item.Ad.IndexOf("KPSS A Grubu ve Öğretmenlik") >= 0)
+        //                {
+        //                    KpssLisansSonucVarmi = true;
+        //                    KpssLisansSonucId = item.Id;
+        //                    break;
+        //                }
+        //            }
+
+        //            if (KpssLisansSonucVarmi)
+        //            {
+
+        //                xmlReq.AuthHeader = Authentication;
+        //                xmlReq.sonucId = KpssLisansSonucId;
+        //                xmlReq.tcKimlikNo = sTCNo;
+
+        //                TOsym.SonucGetirXmlResponse clsSonucBilgiXMLResp = clsOsymSonuc.SonucGetirXml(xmlReq);
+        //                if (!string.IsNullOrEmpty(clsSonucBilgiXMLResp.SonucGetirXmlResult.Sonuc.Xml) && clsSonucBilgiXMLResp.SonucGetirXmlResult.Sonuc.Xml.Length > 0)
+        //                {
+
+        //                    using (System.IO.Stream stream = new System.IO.MemoryStream(clsSonucBilgiXMLResp.SonucGetirXmlResult.Sonuc.Xml.Length))
+        //                    {
+        //                        System.IO.StreamWriter swText = new System.IO.StreamWriter(stream);
+        //                        swText.Write(clsSonucBilgiXMLResp.SonucGetirXmlResult.Sonuc.Xml);
+        //                        swText.Flush();
+        //                        stream.Position = 0;
+        //                        ds.ReadXml(stream);
+        //                    }
+
+        //                    if (ds != null)
+        //                    {
+        //                        if (ds.Tables.Count > 0)
+        //                            dt = ds.Tables[0];
+        //                    }
+
+        //                    if (dt.Rows.Count > 0)
+        //                    {
+
+        //                        sPuan = dt.Rows[0][sPuanTur].ToString();
+        //                        sPuan = sPuan.Replace(".", ",");
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception Ex)
+        //    {
+        //        throw new Exception("ÖSYM Puan " + Ex.Message);
+        //    }
+
+        //    return sPuan;
+
+        //}
+
+
+        private static TClient GetService<TClient, TChannel>(string username, string password, string uygulamaKullaniciAdi)
+    where TClient : ClientBase<TChannel>
+    where TChannel : class
         {
-            TOsym.OSYMSoapClient clsOsymSonuc = new TOsym.OSYMSoapClient( TOsym.OSYMSoapClient.EndpointConfiguration.OSYMSoap);
-            TOsym.AuthHeader Authentication = new TOsym.AuthHeader();
+            TClient result = Activator.CreateInstance<TClient>() as TClient;
+            ClientBase<TChannel> client = result as ClientBase<TChannel>;
+
+            AddHeaders(client, username, password, uygulamaKullaniciAdi);
+
+            return result;
+        }
+
+        public static void AddHeaders<T>(System.ServiceModel.ClientBase<T> client, string username, string password, string uygulamaKullaniciAdi) where T : class
+        {
+            EndpointAddressBuilder addressBuilder = new EndpointAddressBuilder(client.Endpoint.Address);
+
+            addressBuilder.Headers.Add(AddressHeader.CreateAddressHeader("KullaniciAdi", string.Empty, username));
+            addressBuilder.Headers.Add(AddressHeader.CreateAddressHeader("Parola", string.Empty, password));
+            addressBuilder.Headers.Add(AddressHeader.CreateAddressHeader("UygulamaKullaniciAdi", string.Empty, uygulamaKullaniciAdi));
+
+            client.Endpoint.Address = addressBuilder.ToEndpointAddress();
+        }
 
 
-            //TOsym.ServisSonucOfArrayOfSinavSonucTemelBilgiYKHEH_S_P5 clsSonucTemelBilgi = new TOsym.ServisSonucOfArrayOfSinavSonucTemelBilgiYKHEH_S_P5();
-            //TOsym.ServisSonucOfSonucBilgiXmlYKHEH_S_P5 clsSonucBilgiXML = new TOsym.ServisSonucOfSonucBilgiXmlYKHEH_S_P5();
-
-            TOsym.SonucGetirXmlRequest xmlReq = new TOsym.SonucGetirXmlRequest();
-
-            TOsym.SonucGetirRequest req = new TOsym.SonucGetirRequest();
-            req.tcKimlikNo = sTCNo;
-            req.sinavYili = int.Parse(sPuanYil);
-            req.sinavGrupId = 6;
 
 
-            Authentication.Username = _appSettings.Nvi_User_Name;
-            Authentication.Password = _appSettings.Nvi_Password;
-            Authentication.KullaniciBilgisi = "Vakıf Ilan - " + sTCNo;
-            Authentication.SessionID = Guid.NewGuid().ToString();
-            req.AuthHeader = Authentication;
-            // clsOsymSonuc.AuthHeaderValue = Authentication;
 
-
-            DataSet ds = new DataSet();
-            DataTable dt = new DataTable();
+        public string getOsymPuanWsIntra(string sTCNo, string sPuanYil, string sPuanTur)
+        {
 
             bool KpssLisansSonucVarmi = false;
             int KpssLisansSonucId = 0;
             string sPuan = "-1";
 
+            DataSet ds = new DataSet();
+            DataTable dt = new DataTable();
+            ServisSonucOfArrayOfSinavSonucTemelBilgiYKHEH_S_P5 clsSonucTemelBilgi = new ServisSonucOfArrayOfSinavSonucTemelBilgiYKHEH_S_P5();
+            ServisSonucOfSonucBilgiXmlYKHEH_S_P5 clsSonucBilgiXML = new ServisSonucOfSonucBilgiXmlYKHEH_S_P5();
+
+            string userName = _appSettings.Nvi_User_Name;
+            string pwd = _appSettings.Nvi_Password;
+            string sorgulayanTC = "32110784006";
+            int puanYil = int.Parse(sPuanYil);
+
+            string validYear = "2020";// System.Configuration.ConfigurationManager.AppSettings["kpssyear"].ToString();
+            int valid = int.Parse(validYear);
+            if (!(puanYil == valid || puanYil == valid - 1))
+                throw new Exception("ÖSYM Puan Yılı Geçerli Değil!");
+
             try
             {
-               TOsym.SonucGetirResponse clsSonucTemelBilgiResp = clsOsymSonuc.SonucGetir(req);
 
-                if (clsSonucTemelBilgiResp.SonucGetirResult.Sonuc.Length > 0)
+                SinavSonuclariGetirResp resp = GetService<SinavServiceClient, ISinavService>(userName, pwd, sorgulayanTC).
+                 SinavSonuclariGetir(new SinavSonuclariGetirReq
+                 {
+                     adayTcKimlikNo = sTCNo,
+                     yil = puanYil,
+                     sinavGrupId = 6
+                 });
+
+                clsSonucTemelBilgi = resp.SorguSonucu;
+
+                if (clsSonucTemelBilgi.Sonuc != null && clsSonucTemelBilgi.Sonuc.Length > 0)
                 {
-                    foreach (var item in clsSonucTemelBilgiResp.SonucGetirResult.Sonuc)
+                    foreach (var item in clsSonucTemelBilgi.Sonuc)
                     {
                         if (item.Ad.IndexOf("KPSS Lisans") >= 0 || item.Ad.IndexOf("KPSS A Grubu ve Öğretmenlik") >= 0)
                         {
@@ -113,19 +235,21 @@ namespace JWTSample.Helpers
 
                     if (KpssLisansSonucVarmi)
                     {
+                        // clsSonucBilgiXML = clsOsymSonuc.SonucGetirXml(sTCNo, KpssLisansSonucId);
 
-                        xmlReq.AuthHeader = Authentication;
-                        xmlReq.sonucId = KpssLisansSonucId;
-                        xmlReq.tcKimlikNo = sTCNo;
+                        SinavSonucXmlResp xmlResp = GetService<SinavServiceClient, ISinavService>(userName, pwd, sorgulayanTC).
+                            SinavSonucXml(new SinavSonucXmlReq
+                            {
+                                adayTcKimlikNo = sTCNo,
+                                sonucId = KpssLisansSonucId
+                            });
 
-                      TOsym.SonucGetirXmlResponse   clsSonucBilgiXMLResp = clsOsymSonuc.SonucGetirXml(xmlReq);
-                        if (!string.IsNullOrEmpty(clsSonucBilgiXMLResp.SonucGetirXmlResult.Sonuc.Xml) && clsSonucBilgiXMLResp.SonucGetirXmlResult.Sonuc.Xml.Length > 0)
+                        if (!string.IsNullOrEmpty(xmlResp.SorguSonucu.Sonuc.Xml) && xmlResp.SorguSonucu.Sonuc.Xml.Length > 0)
                         {
-
-                            using (System.IO.Stream stream = new System.IO.MemoryStream(clsSonucBilgiXMLResp.SonucGetirXmlResult.Sonuc.Xml.Length))
+                            using (System.IO.Stream stream = new System.IO.MemoryStream(xmlResp.SorguSonucu.Sonuc.Xml.Length))
                             {
                                 System.IO.StreamWriter swText = new System.IO.StreamWriter(stream);
-                                swText.Write(clsSonucBilgiXMLResp.SonucGetirXmlResult.Sonuc.Xml);
+                                swText.Write(xmlResp.SorguSonucu.Sonuc.Xml);
                                 swText.Flush();
                                 stream.Position = 0;
                                 ds.ReadXml(stream);
@@ -145,6 +269,9 @@ namespace JWTSample.Helpers
                             }
                         }
                     }
+                }
+                else {
+                    throw new Exception("ÖSYM Puan Bilgisi Alınamadı");
                 }
             }
             catch (Exception Ex)

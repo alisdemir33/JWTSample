@@ -204,7 +204,6 @@ C:\Users\24667\Source\GithubRepo\JWTSample\JWTSample\bin\Debug\netcoreapp3.1\run
 C:\Users\24667\Source\GithubRepo\JWTSample\JWTSample\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\24667\Source\GithubRepo\JWTSample\JWTSample\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\24667\Source\GithubRepo\JWTSample\JWTSample\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\24667\Source\GithubRepo\JWTSample\JWTSample\obj\Debug\netcoreapp3.1\JWTSample.csprojAssemblyReference.cache
 C:\Users\24667\Source\GithubRepo\JWTSample\JWTSample\obj\Debug\netcoreapp3.1\JWTSample.AssemblyInfoInputs.cache
 C:\Users\24667\Source\GithubRepo\JWTSample\JWTSample\obj\Debug\netcoreapp3.1\JWTSample.AssemblyInfo.cs
 C:\Users\24667\Source\GithubRepo\JWTSample\JWTSample\obj\Debug\netcoreapp3.1\JWTSample.csproj.CoreCompileInputs.cache
@@ -216,3 +215,5 @@ C:\Users\24667\Source\GithubRepo\JWTSample\JWTSample\obj\Debug\netcoreapp3.1\sta
 C:\Users\24667\Source\GithubRepo\JWTSample\JWTSample\obj\Debug\netcoreapp3.1\JWTSample.dll
 C:\Users\24667\Source\GithubRepo\JWTSample\JWTSample\obj\Debug\netcoreapp3.1\JWTSample.pdb
 C:\Users\24667\Source\GithubRepo\JWTSample\JWTSample\obj\Debug\netcoreapp3.1\JWTSample.genruntimeconfig.cache
+C:\Users\24667\Source\GithubRepo\JWTSample\JWTSample\bin\Debug\netcoreapp3.1\Connected Services\OSYMWsintra\ConnectedService.json
+C:\Users\24667\Source\GithubRepo\JWTSample\JWTSample\obj\Debug\netcoreapp3.1\JWTSample.csprojAssemblyReference.cache

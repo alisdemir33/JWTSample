@@ -6,3 +6,11 @@ C:\Users\24667\Source\Repos\AlisWebApiRepo\jwt-sample-master\jwt-sample-master\J
 C:\Users\24667\Source\Repos\AlisWebApiRepo\jwt-sample-master\jwt-sample-master\JWTSample\Services\obj\Debug\netstandard2.0\Services.csproj.CoreCompileInputs.cache
 C:\Users\24667\Source\Repos\AlisWebApiRepo\jwt-sample-master\jwt-sample-master\JWTSample\Services\obj\Debug\netstandard2.0\Services.dll
 C:\Users\24667\Source\Repos\AlisWebApiRepo\jwt-sample-master\jwt-sample-master\JWTSample\Services\obj\Debug\netstandard2.0\Services.pdb
+C:\Users\24667\Source\GithubRepo\JWTSample\Services\bin\Debug\netstandard2.0\Services.deps.json
+C:\Users\24667\Source\GithubRepo\JWTSample\Services\bin\Debug\netstandard2.0\Services.dll
+C:\Users\24667\Source\GithubRepo\JWTSample\Services\bin\Debug\netstandard2.0\Services.pdb
+C:\Users\24667\Source\GithubRepo\JWTSample\Services\obj\Debug\netstandard2.0\Services.AssemblyInfoInputs.cache
+C:\Users\24667\Source\GithubRepo\JWTSample\Services\obj\Debug\netstandard2.0\Services.AssemblyInfo.cs
+C:\Users\24667\Source\GithubRepo\JWTSample\Services\obj\Debug\netstandard2.0\Services.csproj.CoreCompileInputs.cache
+C:\Users\24667\Source\GithubRepo\JWTSample\Services\obj\Debug\netstandard2.0\Services.dll
+C:\Users\24667\Source\GithubRepo\JWTSample\Services\obj\Debug\netstandard2.0\Services.pdb
