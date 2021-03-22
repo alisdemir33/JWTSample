@@ -104,7 +104,24 @@ namespace JWTSample.Controllers
             }
         }
 
-       // [HttpGet]
+        [HttpGet]
+        public IActionResult GetBasvuruList(string personelID)
+        {
+            ServiceResult<Application[]> result = null;
+            try
+            {
+                result = _userService.BasvuruListesi("5");
+                return Ok(result);
+            }
+            catch (Exception exc)
+            {
+                return Ok(result);
+            }
+        }
+
+
+
+        // [HttpGet]
         //public HttpResponseMessage GetVakifListByPagedList(int pageNumber = 1, int pageSize = 10, string cityFilter = "", string foundationFilter = "")
         //{
         //    //sdfsdf

@@ -209,7 +209,6 @@ namespace JWTSample.Helpers
 
         public ServiceResult<string> basvuruKaydet(IsBasvurusu clsIsBasvuru, long ilanNo)
         {
-
             try
             {
              ServiceResult<string> result  = wsHelper.wsBasvuruKaydet(clsIsBasvuru,ilanNo);
@@ -219,88 +218,6 @@ namespace JWTSample.Helpers
             {
                 return new ServiceResult<string>() { isSuccessfull = false, ResultCode = 0, ResultData = null, ResultExplanation = "Başvuru Kaydedilemedi!" };
             }
-
-           //new ServiceResult<string>() { isSuccessfull = true, ResultCode = 1, ResultData = null, ResultExplanation = "Başvuru Kaydedilemedi!" };
-
-
-            //    #region Hata oluşursa
-            //    if (bResult)
-            //    {
-            //        Status.InnerHtml = "Başvuru kaydı yapılamadı.";
-
-            //        if (!bAdresStatus)
-            //        {
-            //            Status.InnerHtml += " Sistemden adres bilginize ulaşılamamıştır.</br> İkametgah şartı isteyen ilanlara başvurabilmek için nüfus müdürlüğüne gidip adres kaydınızı yaptırmanız gerekmektedir.";
-            //            //Status.InnerHtml += @" <script language='javascript' type='text/javascript'>
-            //            //                alert('Başvuru kaydı yapılamadı. Sistemden adres bilginize ulaşılamamıştır.\n\r İkametgah şartı isteyen ilanlara başvurabilmek için nüfus müdürlüğüne gidip adres kaydınızı yaptırmanız gerekmektedir.');
-            //            //        </script>";
-
-            //            SendMail("Sistemde hata oluştu. Sistemden adres bilginize ulaşılamamıştır.</br> İkametgah şartı isteyen ilanlara başvurabilmek için nüfus müdürlüğüne gidip adres kaydınızı yaptırmanız gerekmektedir.", "New", "0");
-            //            InsertLog("Başvuru kaydınız yapılamadı. Sistemden adres bilginize ulaşılamamıştır.\n\r İkametgah şartı isteyen ilanlara başvurabilmek için nüfus müdürlüğüne gidip adres kaydınızı yaptırmanız gerekmektedir.");
-            //        }
-            //        else
-            //        {
-            //            if (Ex.Message.ToString().Length > 100)
-            //                Status.InnerHtml += "Sebep : " + Ex.Message.ToString().Substring(0, 100);
-            //            else
-            //                Status.InnerHtml += "Sebep : " + Ex.Message.ToString();
-
-
-            //            //  Status.InnerHtml += "<script language='javascript' type='text/javascript'>alert('Başvuru kaydı yapılamadı.');</script>";
-
-            //            SendMail("Sistemde hata oluştu.", "New", "0");
-            //            InsertLog("Başvuru kaydınız yapılamadı. " + Ex.Message.ToString());
-            //        }
-
-            //        bResult = false;
-            //    }
-            //    #endregion
-            //}
-
-            //if (clsIslemSonucu != null)
-            //{
-            //    clsMesaj = clsIslemSonucu.mesaj;
-            //    #region Servis Sonucu OK ise
-            //    if (clsIslemSonucu.sonucTuru == sonucTuru.BILGI || clsIslemSonucu.sonucTuru == sonucTuru.ONAY)
-            //    {
-            //        Status.InnerHtml = @"Başvuru kaydı yapıldı.";
-            //        if (clsMesaj != null)
-            //            Status.InnerHtml += "Sonuç : " + clsMesaj.mesaj1.ToString();
-
-            //        Status.InnerHtml += "<br/>Başvurunuzun geçerli olması için aşağıdaki belgeleri en son " + HttpUtility.HtmlEncode(hdnEvrakTarih.Value.ToString()) + @" tarihine kadar başvuru yaptığınız ilgili Sosyal Yardımlaşma ve Dayanışma Vakfına ulaştırınız." + HttpUtility.HtmlEncode(hdnEvrak.Value.ToString()).Replace("-", "<br/> - ") + "<br/><br/>";
-
-            //        InsertBasvuru();
-            //        RefreshSession();
-            //        SendMail("", "New", "1");
-            //        //Status.InnerHtml += @" <script language='javascript' type='text/javascript'>
-            //        //                        alert('Başvuru kaydı yapıldı.\n\r Başvurunuzun geçerli olması için aşağıdaki belgeleri en son " + HttpUtility.HtmlEncode(hdnEvrakTarih.Value) + @" tarihine kadar başvuru yaptığınız ilgili Sosyal Yardımlaşma ve Dayanışma Vakfına ulaştırınız. \n\r " + HttpUtility.HtmlEncode(hdnEvrak.Value) + @"');
-            //        //                    </script>";
-            //    }
-            //    #endregion
-            //    #region Servis Sonucu OK değil ise
-            //    else
-            //    {
-            //        if (bResult)
-            //        {
-            //            Status.InnerHtml = "Başvuru kaydı yapılamadı.";
-
-            //            if (clsMesaj != null)
-            //            {
-            //                SendMail(clsMesaj.mesaj1.ToString(), "New", "0");
-            //                InsertLog(clsMesaj.mesaj1.ToString());
-            //                Status.InnerHtml += "<br/>Sebep : " + clsMesaj.mesaj1.ToString();
-            //                //  Status.InnerHtml += "<script language='javascript' type='text/javascript'>alert('Başvuru kaydı yapılamadı.Sebep : " + clsMesaj.mesaj1.ToString() + "');</script>";
-            //            }
-            //            else
-            //            {
-            //                SendMail("Sistemde hata oluştu.", "New", "0");
-            //                InsertLog("Başvuru kaydı yapılamadı");
-            //                // Status.InnerHtml += "<script language='javascript' type='text/javascript'>alert('Başvuru kaydı yapılamadı.');</script>";
-            //                Status.InnerHtml += "Sistemde Hata Oluştu,Başvuru kaydı yapılamadı!";
-            //            }
-            //        }
-
-            //    }
         }
     }
 }

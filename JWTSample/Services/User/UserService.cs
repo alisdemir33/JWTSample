@@ -404,10 +404,6 @@ namespace JWTSample.Services.User
                 islemSonucu clsIslemSonucu = new islemSonucu();
                 mesaj clsMesaj = new mesaj();
 
-                
-                
-
-
                 clsKisiselBilgiler.tcKimlikNoField = sonuc.Veri.Rows[0]["TCKimlikNo"].ToString();
                 clsKisiselBilgiler.adField = sonuc.Veri.Rows[0]["Adi"].ToString();
                 clsKisiselBilgiler.soyadField = sonuc.Veri.Rows[0]["Soyadi"].ToString();
@@ -482,8 +478,27 @@ namespace JWTSample.Services.User
                 return new ServiceResult<string>() { isSuccessfull = false, ResultCode = 2, ResultData = null, ResultExplanation = exc.Message };
             }
 
-        }    
+        }
 
+        public ServiceResult<Application[]> BasvuruListesi(string personelID) {
+
+
+            try
+            {
+                VakifDb db = new VakifDb(_appSettings.ConnStr);
+                WSHelper wsHelper = new WSHelper(db, _appSettings);
+               
+                 var sonuc = db.GetKullanici(personelID);
+                string TCNo =  sonuc.Veri.Rows[0]["TCKimlikNo"].ToString();
+                Application[] liste = wsHelper.BasvuruListesi(TCNo);              
+
+                return new ServiceResult<Application[]>() { isSuccessfull = true, ResultCode = 1, ResultData = liste, ResultExplanation = "Liste Başarılı" };
+            }
+            catch (Exception exc)
+            {
+                return new ServiceResult<Application[]>() { isSuccessfull = false, ResultCode = 2, ResultData = null, ResultExplanation = exc.Message };
+            }
+        }
 
 
         public Ingredients GetIngredients()

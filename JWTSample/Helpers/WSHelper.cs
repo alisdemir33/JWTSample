@@ -23,6 +23,9 @@ namespace JWTSample.Helpers
         AppSettings _appSettings;
         Mail clsMail = new Mail();
 
+        public WSHelper() { 
+        }
+
         public WSHelper(VakifDb dbParam, AppSettings appSettings)
         {
             db = dbParam;
@@ -65,100 +68,6 @@ namespace JWTSample.Helpers
             return new ServiceResult<string>() { isSuccessfull = true, ResultCode = 0, ResultData = null, ResultExplanation = "Başvuru Güncellendi!" };
         }
 
-        //public string getOsymPuan(string sTCNo, string sPuanYil, string sPuanTur)
-        //{
-        //    TOsym.OSYMSoapClient clsOsymSonuc = new TOsym.OSYMSoapClient(TOsym.OSYMSoapClient.EndpointConfiguration.OSYMSoap);
-        //    TOsym.AuthHeader Authentication = new TOsym.AuthHeader();
-
-
-        //    //TOsym.ServisSonucOfArrayOfSinavSonucTemelBilgiYKHEH_S_P5 clsSonucTemelBilgi = new TOsym.ServisSonucOfArrayOfSinavSonucTemelBilgiYKHEH_S_P5();
-        //    //TOsym.ServisSonucOfSonucBilgiXmlYKHEH_S_P5 clsSonucBilgiXML = new TOsym.ServisSonucOfSonucBilgiXmlYKHEH_S_P5();
-
-        //    TOsym.SonucGetirXmlRequest xmlReq = new TOsym.SonucGetirXmlRequest();
-
-        //    TOsym.SonucGetirRequest req = new TOsym.SonucGetirRequest();
-        //    req.tcKimlikNo = sTCNo;
-        //    req.sinavYili = int.Parse(sPuanYil);
-        //    req.sinavGrupId = 6;
-
-
-        //    Authentication.Username = _appSettings.Nvi_User_Name;
-        //    Authentication.Password = _appSettings.Nvi_Password;
-        //    Authentication.KullaniciBilgisi = "Vakıf Ilan - " + sTCNo;
-        //    Authentication.SessionID = Guid.NewGuid().ToString();
-        //    req.AuthHeader = Authentication;
-        //    // clsOsymSonuc.AuthHeaderValue = Authentication;
-
-
-        //    DataSet ds = new DataSet();
-        //    DataTable dt = new DataTable();
-
-        //    bool KpssLisansSonucVarmi = false;
-        //    int KpssLisansSonucId = 0;
-        //    string sPuan = "-1";
-
-        //    try
-        //    {
-        //        TOsym.SonucGetirResponse clsSonucTemelBilgiResp = clsOsymSonuc.SonucGetir(req);
-
-        //        if (clsSonucTemelBilgiResp.SonucGetirResult.Sonuc.Length > 0)
-        //        {
-        //            foreach (var item in clsSonucTemelBilgiResp.SonucGetirResult.Sonuc)
-        //            {
-        //                if (item.Ad.IndexOf("KPSS Lisans") >= 0 || item.Ad.IndexOf("KPSS A Grubu ve Öğretmenlik") >= 0)
-        //                {
-        //                    KpssLisansSonucVarmi = true;
-        //                    KpssLisansSonucId = item.Id;
-        //                    break;
-        //                }
-        //            }
-
-        //            if (KpssLisansSonucVarmi)
-        //            {
-
-        //                xmlReq.AuthHeader = Authentication;
-        //                xmlReq.sonucId = KpssLisansSonucId;
-        //                xmlReq.tcKimlikNo = sTCNo;
-
-        //                TOsym.SonucGetirXmlResponse clsSonucBilgiXMLResp = clsOsymSonuc.SonucGetirXml(xmlReq);
-        //                if (!string.IsNullOrEmpty(clsSonucBilgiXMLResp.SonucGetirXmlResult.Sonuc.Xml) && clsSonucBilgiXMLResp.SonucGetirXmlResult.Sonuc.Xml.Length > 0)
-        //                {
-
-        //                    using (System.IO.Stream stream = new System.IO.MemoryStream(clsSonucBilgiXMLResp.SonucGetirXmlResult.Sonuc.Xml.Length))
-        //                    {
-        //                        System.IO.StreamWriter swText = new System.IO.StreamWriter(stream);
-        //                        swText.Write(clsSonucBilgiXMLResp.SonucGetirXmlResult.Sonuc.Xml);
-        //                        swText.Flush();
-        //                        stream.Position = 0;
-        //                        ds.ReadXml(stream);
-        //                    }
-
-        //                    if (ds != null)
-        //                    {
-        //                        if (ds.Tables.Count > 0)
-        //                            dt = ds.Tables[0];
-        //                    }
-
-        //                    if (dt.Rows.Count > 0)
-        //                    {
-
-        //                        sPuan = dt.Rows[0][sPuanTur].ToString();
-        //                        sPuan = sPuan.Replace(".", ",");
-        //                    }
-        //                }
-        //            }
-        //        }
-        //    }
-        //    catch (Exception Ex)
-        //    {
-        //        throw new Exception("ÖSYM Puan " + Ex.Message);
-        //    }
-
-        //    return sPuan;
-
-        //}
-
-
         private static TClient GetService<TClient, TChannel>(string username, string password, string uygulamaKullaniciAdi)
     where TClient : ClientBase<TChannel>
     where TChannel : class
@@ -181,9 +90,6 @@ namespace JWTSample.Helpers
 
             client.Endpoint.Address = addressBuilder.ToEndpointAddress();
         }
-
-
-
 
 
         public string getOsymPuanWsIntra(string sTCNo, string sPuanYil, string sPuanTur)
@@ -637,24 +543,39 @@ namespace JWTSample.Helpers
 
         //}
 
+
+        public Application[] BasvuruListesi(string TCNo) {
+            Service1Client service1Client = new Service1Client();
+            getBasvurularimRequest req = new getBasvurularimRequest();
+            req.TCNo = TCNo;
+            getBasvurularimResponse resp = service1Client.getBasvurularim(req);
+            KisiIseAlimTalebi[] lst = resp.getBasvurularimResult;
+
+            List <Application> resultLst = new List<Application>();
+
+            for (int c = 0; c < 1; c++)
+            {
+                Application app = new Application
+                {
+                    basvuruDurumu = lst[c].basvuruDurumuField,
+                    basvuruTarihi = lst[c].basvuruTarihiField,
+                    iseBasvurusuNo = lst[c].iseBasvurusuNoField,
+                    belgeTeslimTarihi = lst[c].iseAlimTalebiField.belgeTeslimTarihiField.ToString(),
+                    ilAdi = lst[c].iseAlimTalebiField.cityField.ilAdiField,
+                    ilceAdi = lst[c].iseAlimTalebiField.districtField.ilceAdiField,
+                    baslik = lst[c].iseAlimTalebiField.baslikField,
+                    unvan = lst[c].iseAlimTalebiField.unvanField.ToString()
+                };
+                resultLst.Add(app);
+            }
+            return resultLst.ToArray();
+        } 
+
         public IseAlimTalebi[] IlanListesi()
         {
-
-
-
-
-            //iseAlimTalebi[] clsDizi = new iseAlimTalebi[0];
-            //iseAlimTalebi clsTalep = new iseAlimTalebi();
-            //ilBilgisi clsIlBilgisi = new ilBilgisi();
-            //ilceBilgisi clsIlceBilgisi = new ilceBilgisi();
-            // clsIlBilgisi.mernisIlKoduSpecified = true;          
-
-            //netCredNew.UserName = Username;
             Service1Client service1Client = new Service1Client();
             GetDataRequest req = new GetDataRequest();
             GetDataResponse resp = service1Client.GetData(req);
-
-            // resp.GetDataResult[0].calismaSekliField;
 
             iseAlimTalebi[] resultArr = resp.GetDataResult;
             List<IseAlimTalebi> finArr = new List<IseAlimTalebi>();
@@ -721,10 +642,6 @@ namespace JWTSample.Helpers
             return finArr.ToArray();
 
         }
-
-
-
-
 
 
         //public MernisSorguSonuc MernistenSorgula(string sTCno)

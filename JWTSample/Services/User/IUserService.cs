@@ -20,6 +20,7 @@ namespace JWTSample.Services.User
         Ingredients GetIngredients();
         List<Order> GetOrders();
         ServiceResult<IseAlimTalebi[]> IlanListesi();
+        ServiceResult<Application[]> BasvuruListesi(string TCNo);
         ServiceResult<string> SaveApplication(IsBasvurusuBilgileri basvuru);
     }
 }

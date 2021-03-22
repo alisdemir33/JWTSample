@@ -599,6 +599,7 @@ namespace JobServiceWcf
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(JobServiceWcf.IsBasvurusuKisiselBilgiler))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(JobServiceWcf.islemSonucu))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(JobServiceWcf.mesaj))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(JobServiceWcf.KisiIseAlimTalebi))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(JobServiceWcf.iseAlimTalebi))]
     public partial class abstractHumanResourcesTransferableEntity : object
     {
@@ -1208,6 +1209,118 @@ namespace JobServiceWcf
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="KisiIseAlimTalebi", Namespace="http://schemas.datacontract.org/2004/07/WcfService1.JobService")]
+    public partial class KisiIseAlimTalebi : JobServiceWcf.abstractHumanResourcesTransferableEntity
+    {
+        
+        private string basvuruDurumuFieldField;
+        
+        private System.DateTime basvuruTarihiFieldField;
+        
+        private bool basvuruTarihiFieldSpecifiedField;
+        
+        private JobServiceWcf.iseAlimTalebi iseAlimTalebiFieldField;
+        
+        private long iseBasvurusuNoFieldField;
+        
+        private bool iseBasvurusuNoFieldSpecifiedField;
+        
+        private string tcKimlikNoFieldField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string basvuruDurumuField
+        {
+            get
+            {
+                return this.basvuruDurumuFieldField;
+            }
+            set
+            {
+                this.basvuruDurumuFieldField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.DateTime basvuruTarihiField
+        {
+            get
+            {
+                return this.basvuruTarihiFieldField;
+            }
+            set
+            {
+                this.basvuruTarihiFieldField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool basvuruTarihiFieldSpecified
+        {
+            get
+            {
+                return this.basvuruTarihiFieldSpecifiedField;
+            }
+            set
+            {
+                this.basvuruTarihiFieldSpecifiedField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public JobServiceWcf.iseAlimTalebi iseAlimTalebiField
+        {
+            get
+            {
+                return this.iseAlimTalebiFieldField;
+            }
+            set
+            {
+                this.iseAlimTalebiFieldField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public long iseBasvurusuNoField
+        {
+            get
+            {
+                return this.iseBasvurusuNoFieldField;
+            }
+            set
+            {
+                this.iseBasvurusuNoFieldField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public bool iseBasvurusuNoFieldSpecified
+        {
+            get
+            {
+                return this.iseBasvurusuNoFieldSpecifiedField;
+            }
+            set
+            {
+                this.iseBasvurusuNoFieldSpecifiedField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string tcKimlikNoField
+        {
+            get
+            {
+                return this.tcKimlikNoFieldField;
+            }
+            set
+            {
+                this.tcKimlikNoFieldField = value;
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
     [System.Runtime.Serialization.DataContractAttribute(Name="calismaSekli", Namespace="http://schemas.datacontract.org/2004/07/WcfService1.JobService")]
     public enum calismaSekli : int
@@ -1450,6 +1563,12 @@ namespace JobServiceWcf
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/isBasvurusuGuncelleProxy", ReplyAction="http://tempuri.org/IService1/isBasvurusuGuncelleProxyResponse")]
         System.Threading.Tasks.Task<JobServiceWcf.isBasvurusuGuncelleProxyResponse> isBasvurusuGuncelleProxyAsync(JobServiceWcf.isBasvurusuGuncelleProxyRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getBasvurularim", ReplyAction="http://tempuri.org/IService1/getBasvurularimResponse")]
+        JobServiceWcf.getBasvurularimResponse getBasvurularim(JobServiceWcf.getBasvurularimRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getBasvurularim", ReplyAction="http://tempuri.org/IService1/getBasvurularimResponse")]
+        System.Threading.Tasks.Task<JobServiceWcf.getBasvurularimResponse> getBasvurularimAsync(JobServiceWcf.getBasvurularimRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1604,6 +1723,44 @@ namespace JobServiceWcf
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getBasvurularim", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getBasvurularimRequest
+    {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string TCNo;
+        
+        public getBasvurularimRequest()
+        {
+        }
+        
+        public getBasvurularimRequest(string TCNo)
+        {
+            this.TCNo = TCNo;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getBasvurularimResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getBasvurularimResponse
+    {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public JobServiceWcf.KisiIseAlimTalebi[] getBasvurularimResult;
+        
+        public getBasvurularimResponse()
+        {
+        }
+        
+        public getBasvurularimResponse(JobServiceWcf.KisiIseAlimTalebi[] getBasvurularimResult)
+        {
+            this.getBasvurularimResult = getBasvurularimResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
     public interface IService1Channel : JobServiceWcf.IService1, System.ServiceModel.IClientChannel
     {
@@ -1692,6 +1849,16 @@ namespace JobServiceWcf
         public System.Threading.Tasks.Task<JobServiceWcf.isBasvurusuGuncelleProxyResponse> isBasvurusuGuncelleProxyAsync(JobServiceWcf.isBasvurusuGuncelleProxyRequest request)
         {
             return base.Channel.isBasvurusuGuncelleProxyAsync(request);
+        }
+        
+        public JobServiceWcf.getBasvurularimResponse getBasvurularim(JobServiceWcf.getBasvurularimRequest request)
+        {
+            return base.Channel.getBasvurularim(request);
+        }
+        
+        public System.Threading.Tasks.Task<JobServiceWcf.getBasvurularimResponse> getBasvurularimAsync(JobServiceWcf.getBasvurularimRequest request)
+        {
+            return base.Channel.getBasvurularimAsync(request);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync()
