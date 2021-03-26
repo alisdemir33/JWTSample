@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JobServiceWcf
+namespace JobWcfService
 {
     using System.Runtime.Serialization;
     
@@ -15,7 +15,7 @@ namespace JobServiceWcf
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
     [System.Runtime.Serialization.DataContractAttribute(Name="iseAlimTalebi", Namespace="http://schemas.datacontract.org/2004/07/WcfService1.JobService")]
-    public partial class iseAlimTalebi : JobServiceWcf.abstractHumanResourcesTransferableEntity
+    public partial class iseAlimTalebi : JobWcfService.abstractHumanResourcesTransferableEntity
     {
         
         private string aciklamaFieldField;
@@ -50,11 +50,11 @@ namespace JobServiceWcf
         
         private bool bolumGerekliFieldSpecifiedField;
         
-        private JobServiceWcf.calismaSekli calismaSekliFieldField;
+        private JobWcfService.calismaSekli calismaSekliFieldField;
         
         private bool calismaSekliFieldSpecifiedField;
         
-        private JobServiceWcf.ilBilgisi cityFieldField;
+        private JobWcfService.ilBilgisi cityFieldField;
         
         private string dilAciklamasiFieldField;
         
@@ -62,9 +62,9 @@ namespace JobServiceWcf
         
         private bool dilGerekliFieldSpecifiedField;
         
-        private JobServiceWcf.ilceBilgisi districtFieldField;
+        private JobWcfService.ilceBilgisi districtFieldField;
         
-        private JobServiceWcf.iseAlimTalebiDurumu durumFieldField;
+        private JobWcfService.iseAlimTalebiDurumu durumFieldField;
         
         private bool durumFieldSpecifiedField;
         
@@ -90,7 +90,7 @@ namespace JobServiceWcf
         
         private bool surucuBelgesiGerekliFieldSpecifiedField;
         
-        private JobServiceWcf.unvan unvanFieldField;
+        private JobWcfService.unvan unvanFieldField;
         
         private bool unvanFieldSpecifiedField;
         
@@ -303,7 +303,7 @@ namespace JobServiceWcf
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public JobServiceWcf.calismaSekli calismaSekliField
+        public JobWcfService.calismaSekli calismaSekliField
         {
             get
             {
@@ -329,7 +329,7 @@ namespace JobServiceWcf
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public JobServiceWcf.ilBilgisi cityField
+        public JobWcfService.ilBilgisi cityField
         {
             get
             {
@@ -381,7 +381,7 @@ namespace JobServiceWcf
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public JobServiceWcf.ilceBilgisi districtField
+        public JobWcfService.ilceBilgisi districtField
         {
             get
             {
@@ -394,7 +394,7 @@ namespace JobServiceWcf
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public JobServiceWcf.iseAlimTalebiDurumu durumField
+        public JobWcfService.iseAlimTalebiDurumu durumField
         {
             get
             {
@@ -563,7 +563,7 @@ namespace JobServiceWcf
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public JobServiceWcf.unvan unvanField
+        public JobWcfService.unvan unvanField
         {
             get
             {
@@ -592,15 +592,15 @@ namespace JobServiceWcf
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
     [System.Runtime.Serialization.DataContractAttribute(Name="abstractHumanResourcesTransferableEntity", Namespace="http://schemas.datacontract.org/2004/07/WcfService1.JobService")]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(JobServiceWcf.ilBilgisi))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(JobServiceWcf.ilceBilgisi))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(JobServiceWcf.IsBasvurusu))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(JobServiceWcf.IsBasvurusuDigerBilgiler))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(JobServiceWcf.IsBasvurusuKisiselBilgiler))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(JobServiceWcf.islemSonucu))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(JobServiceWcf.mesaj))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(JobServiceWcf.KisiIseAlimTalebi))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(JobServiceWcf.iseAlimTalebi))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(JobWcfService.ilBilgisi))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(JobWcfService.ilceBilgisi))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(JobWcfService.IsBasvurusu))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(JobWcfService.IsBasvurusuDigerBilgiler))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(JobWcfService.IsBasvurusuKisiselBilgiler))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(JobWcfService.islemSonucu))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(JobWcfService.mesaj))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(JobWcfService.KisiIseAlimTalebi))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(JobWcfService.iseAlimTalebi))]
     public partial class abstractHumanResourcesTransferableEntity : object
     {
     }
@@ -608,7 +608,7 @@ namespace JobServiceWcf
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ilBilgisi", Namespace="http://schemas.datacontract.org/2004/07/WcfService1.JobService")]
-    public partial class ilBilgisi : JobServiceWcf.abstractHumanResourcesTransferableEntity
+    public partial class ilBilgisi : JobWcfService.abstractHumanResourcesTransferableEntity
     {
         
         private string ilAdiFieldField;
@@ -660,7 +660,7 @@ namespace JobServiceWcf
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ilceBilgisi", Namespace="http://schemas.datacontract.org/2004/07/WcfService1.JobService")]
-    public partial class ilceBilgisi : JobServiceWcf.abstractHumanResourcesTransferableEntity
+    public partial class ilceBilgisi : JobWcfService.abstractHumanResourcesTransferableEntity
     {
         
         private string ilceAdiFieldField;
@@ -712,15 +712,15 @@ namespace JobServiceWcf
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
     [System.Runtime.Serialization.DataContractAttribute(Name="IsBasvurusu", Namespace="http://schemas.datacontract.org/2004/07/WcfService1.JobService")]
-    public partial class IsBasvurusu : JobServiceWcf.abstractHumanResourcesTransferableEntity
+    public partial class IsBasvurusu : JobWcfService.abstractHumanResourcesTransferableEntity
     {
         
-        private JobServiceWcf.IsBasvurusuDigerBilgiler digerBilgilerFieldField;
+        private JobWcfService.IsBasvurusuDigerBilgiler digerBilgilerFieldField;
         
-        private JobServiceWcf.IsBasvurusuKisiselBilgiler kisiselBilgilerFieldField;
+        private JobWcfService.IsBasvurusuKisiselBilgiler kisiselBilgilerFieldField;
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public JobServiceWcf.IsBasvurusuDigerBilgiler digerBilgilerField
+        public JobWcfService.IsBasvurusuDigerBilgiler digerBilgilerField
         {
             get
             {
@@ -733,7 +733,7 @@ namespace JobServiceWcf
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public JobServiceWcf.IsBasvurusuKisiselBilgiler kisiselBilgilerField
+        public JobWcfService.IsBasvurusuKisiselBilgiler kisiselBilgilerField
         {
             get
             {
@@ -749,10 +749,10 @@ namespace JobServiceWcf
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
     [System.Runtime.Serialization.DataContractAttribute(Name="IsBasvurusuDigerBilgiler", Namespace="http://schemas.datacontract.org/2004/07/WcfService1.JobService")]
-    public partial class IsBasvurusuDigerBilgiler : JobServiceWcf.abstractHumanResourcesTransferableEntity
+    public partial class IsBasvurusuDigerBilgiler : JobWcfService.abstractHumanResourcesTransferableEntity
     {
         
-        private JobServiceWcf.askerlikDurumu askerlikDurumuFieldField;
+        private JobWcfService.askerlikDurumu askerlikDurumuFieldField;
         
         private string cepTelNumarasiFieldField;
         
@@ -760,7 +760,7 @@ namespace JobServiceWcf
         
         private string ePostaFieldField;
         
-        private JobServiceWcf.egitimDurumu egitimDurumuFieldField;
+        private JobWcfService.egitimDurumu egitimDurumuFieldField;
         
         private bool egitimDurumuFieldSpecifiedField;
         
@@ -783,7 +783,7 @@ namespace JobServiceWcf
         private string universiteBolumuFieldField;
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public JobServiceWcf.askerlikDurumu askerlikDurumuField
+        public JobWcfService.askerlikDurumu askerlikDurumuField
         {
             get
             {
@@ -835,7 +835,7 @@ namespace JobServiceWcf
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public JobServiceWcf.egitimDurumu egitimDurumuField
+        public JobWcfService.egitimDurumu egitimDurumuField
         {
             get
             {
@@ -981,20 +981,20 @@ namespace JobServiceWcf
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
     [System.Runtime.Serialization.DataContractAttribute(Name="IsBasvurusuKisiselBilgiler", Namespace="http://schemas.datacontract.org/2004/07/WcfService1.JobService")]
-    public partial class IsBasvurusuKisiselBilgiler : JobServiceWcf.abstractHumanResourcesTransferableEntity
+    public partial class IsBasvurusuKisiselBilgiler : JobWcfService.abstractHumanResourcesTransferableEntity
     {
         
         private string adFieldField;
         
-        private JobServiceWcf.cinsiyet cinsiyetFieldField;
+        private JobWcfService.cinsiyet cinsiyetFieldField;
         
         private System.DateTime dogumTarihiFieldField;
         
         private string dogumYeriFieldField;
         
-        private JobServiceWcf.ilceBilgisi ilceFieldField;
+        private JobWcfService.ilceBilgisi ilceFieldField;
         
-        private JobServiceWcf.medeniDurumu medeniDurumuFieldField;
+        private JobWcfService.medeniDurumu medeniDurumuFieldField;
         
         private string soyadFieldField;
         
@@ -1014,7 +1014,7 @@ namespace JobServiceWcf
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public JobServiceWcf.cinsiyet cinsiyetField
+        public JobWcfService.cinsiyet cinsiyetField
         {
             get
             {
@@ -1053,7 +1053,7 @@ namespace JobServiceWcf
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public JobServiceWcf.ilceBilgisi ilceField
+        public JobWcfService.ilceBilgisi ilceField
         {
             get
             {
@@ -1066,7 +1066,7 @@ namespace JobServiceWcf
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public JobServiceWcf.medeniDurumu medeniDurumuField
+        public JobWcfService.medeniDurumu medeniDurumuField
         {
             get
             {
@@ -1108,17 +1108,17 @@ namespace JobServiceWcf
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
     [System.Runtime.Serialization.DataContractAttribute(Name="islemSonucu", Namespace="http://schemas.datacontract.org/2004/07/WcfService1.JobService")]
-    public partial class islemSonucu : JobServiceWcf.abstractHumanResourcesTransferableEntity
+    public partial class islemSonucu : JobWcfService.abstractHumanResourcesTransferableEntity
     {
         
-        private JobServiceWcf.mesaj mesajFieldField;
+        private JobWcfService.mesaj mesajFieldField;
         
-        private JobServiceWcf.sonucTuru sonucTuruFieldField;
+        private JobWcfService.sonucTuru sonucTuruFieldField;
         
         private bool sonucTuruFieldSpecifiedField;
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public JobServiceWcf.mesaj mesajField
+        public JobWcfService.mesaj mesajField
         {
             get
             {
@@ -1131,7 +1131,7 @@ namespace JobServiceWcf
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public JobServiceWcf.sonucTuru sonucTuruField
+        public JobWcfService.sonucTuru sonucTuruField
         {
             get
             {
@@ -1160,7 +1160,7 @@ namespace JobServiceWcf
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
     [System.Runtime.Serialization.DataContractAttribute(Name="mesaj", Namespace="http://schemas.datacontract.org/2004/07/WcfService1.JobService")]
-    public partial class mesaj : JobServiceWcf.abstractHumanResourcesTransferableEntity
+    public partial class mesaj : JobWcfService.abstractHumanResourcesTransferableEntity
     {
         
         private int adetFieldField;
@@ -1212,7 +1212,7 @@ namespace JobServiceWcf
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
     [System.Runtime.Serialization.DataContractAttribute(Name="KisiIseAlimTalebi", Namespace="http://schemas.datacontract.org/2004/07/WcfService1.JobService")]
-    public partial class KisiIseAlimTalebi : JobServiceWcf.abstractHumanResourcesTransferableEntity
+    public partial class KisiIseAlimTalebi : JobWcfService.abstractHumanResourcesTransferableEntity
     {
         
         private string basvuruDurumuFieldField;
@@ -1221,7 +1221,7 @@ namespace JobServiceWcf
         
         private bool basvuruTarihiFieldSpecifiedField;
         
-        private JobServiceWcf.iseAlimTalebi iseAlimTalebiFieldField;
+        private JobWcfService.iseAlimTalebi iseAlimTalebiFieldField;
         
         private long iseBasvurusuNoFieldField;
         
@@ -1269,7 +1269,7 @@ namespace JobServiceWcf
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public JobServiceWcf.iseAlimTalebi iseAlimTalebiField
+        public JobWcfService.iseAlimTalebi iseAlimTalebiField
         {
             get
             {
@@ -1536,239 +1536,49 @@ namespace JobServiceWcf
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="JobServiceWcf.IService1")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="JobWcfService.IService1")]
     public interface IService1
     {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetData", ReplyAction="http://tempuri.org/IService1/GetDataResponse")]
-        JobServiceWcf.GetDataResponse GetData(JobServiceWcf.GetDataRequest request);
+        JobWcfService.iseAlimTalebi[] GetData();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetData", ReplyAction="http://tempuri.org/IService1/GetDataResponse")]
-        System.Threading.Tasks.Task<JobServiceWcf.GetDataResponse> GetDataAsync(JobServiceWcf.GetDataRequest request);
+        System.Threading.Tasks.Task<JobWcfService.iseAlimTalebi[]> GetDataAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
-        JobServiceWcf.GetDataUsingDataContractResponse GetDataUsingDataContract(JobServiceWcf.GetDataUsingDataContractRequest request);
+        JobWcfService.CompositeType GetDataUsingDataContract(JobWcfService.CompositeType composite);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
-        System.Threading.Tasks.Task<JobServiceWcf.GetDataUsingDataContractResponse> GetDataUsingDataContractAsync(JobServiceWcf.GetDataUsingDataContractRequest request);
+        System.Threading.Tasks.Task<JobWcfService.CompositeType> GetDataUsingDataContractAsync(JobWcfService.CompositeType composite);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/isBasvurusuEkleProxy", ReplyAction="http://tempuri.org/IService1/isBasvurusuEkleProxyResponse")]
-        JobServiceWcf.isBasvurusuEkleProxyResponse isBasvurusuEkleProxy(JobServiceWcf.isBasvurusuEkleProxyRequest request);
+        JobWcfService.islemSonucu isBasvurusuEkleProxy(JobWcfService.IsBasvurusu isBasvurusu, long ilanNo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/isBasvurusuEkleProxy", ReplyAction="http://tempuri.org/IService1/isBasvurusuEkleProxyResponse")]
-        System.Threading.Tasks.Task<JobServiceWcf.isBasvurusuEkleProxyResponse> isBasvurusuEkleProxyAsync(JobServiceWcf.isBasvurusuEkleProxyRequest request);
+        System.Threading.Tasks.Task<JobWcfService.islemSonucu> isBasvurusuEkleProxyAsync(JobWcfService.IsBasvurusu isBasvurusu, long ilanNo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/isBasvurusuGuncelleProxy", ReplyAction="http://tempuri.org/IService1/isBasvurusuGuncelleProxyResponse")]
-        JobServiceWcf.isBasvurusuGuncelleProxyResponse isBasvurusuGuncelleProxy(JobServiceWcf.isBasvurusuGuncelleProxyRequest request);
+        JobWcfService.islemSonucu isBasvurusuGuncelleProxy(JobWcfService.IsBasvurusuDigerBilgiler isBasvurusu, long basvuruNo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/isBasvurusuGuncelleProxy", ReplyAction="http://tempuri.org/IService1/isBasvurusuGuncelleProxyResponse")]
-        System.Threading.Tasks.Task<JobServiceWcf.isBasvurusuGuncelleProxyResponse> isBasvurusuGuncelleProxyAsync(JobServiceWcf.isBasvurusuGuncelleProxyRequest request);
+        System.Threading.Tasks.Task<JobWcfService.islemSonucu> isBasvurusuGuncelleProxyAsync(JobWcfService.IsBasvurusuDigerBilgiler isBasvurusu, long basvuruNo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getBasvurularim", ReplyAction="http://tempuri.org/IService1/getBasvurularimResponse")]
-        JobServiceWcf.getBasvurularimResponse getBasvurularim(JobServiceWcf.getBasvurularimRequest request);
+        JobWcfService.KisiIseAlimTalebi[] getBasvurularim(string TCNo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getBasvurularim", ReplyAction="http://tempuri.org/IService1/getBasvurularimResponse")]
-        System.Threading.Tasks.Task<JobServiceWcf.getBasvurularimResponse> getBasvurularimAsync(JobServiceWcf.getBasvurularimRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetData", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetDataRequest
-    {
-        
-        public GetDataRequest()
-        {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetDataResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetDataResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public JobServiceWcf.iseAlimTalebi[] GetDataResult;
-        
-        public GetDataResponse()
-        {
-        }
-        
-        public GetDataResponse(JobServiceWcf.iseAlimTalebi[] GetDataResult)
-        {
-            this.GetDataResult = GetDataResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetDataUsingDataContract", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetDataUsingDataContractRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public JobServiceWcf.CompositeType composite;
-        
-        public GetDataUsingDataContractRequest()
-        {
-        }
-        
-        public GetDataUsingDataContractRequest(JobServiceWcf.CompositeType composite)
-        {
-            this.composite = composite;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetDataUsingDataContractResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetDataUsingDataContractResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public JobServiceWcf.CompositeType GetDataUsingDataContractResult;
-        
-        public GetDataUsingDataContractResponse()
-        {
-        }
-        
-        public GetDataUsingDataContractResponse(JobServiceWcf.CompositeType GetDataUsingDataContractResult)
-        {
-            this.GetDataUsingDataContractResult = GetDataUsingDataContractResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="isBasvurusuEkleProxy", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class isBasvurusuEkleProxyRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public JobServiceWcf.IsBasvurusu isBasvurusu;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public long ilanNo;
-        
-        public isBasvurusuEkleProxyRequest()
-        {
-        }
-        
-        public isBasvurusuEkleProxyRequest(JobServiceWcf.IsBasvurusu isBasvurusu, long ilanNo)
-        {
-            this.isBasvurusu = isBasvurusu;
-            this.ilanNo = ilanNo;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="isBasvurusuEkleProxyResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class isBasvurusuEkleProxyResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public JobServiceWcf.islemSonucu isBasvurusuEkleProxyResult;
-        
-        public isBasvurusuEkleProxyResponse()
-        {
-        }
-        
-        public isBasvurusuEkleProxyResponse(JobServiceWcf.islemSonucu isBasvurusuEkleProxyResult)
-        {
-            this.isBasvurusuEkleProxyResult = isBasvurusuEkleProxyResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="isBasvurusuGuncelleProxy", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class isBasvurusuGuncelleProxyRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public JobServiceWcf.IsBasvurusu isBasvurusu;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public long basvuruNo;
-        
-        public isBasvurusuGuncelleProxyRequest()
-        {
-        }
-        
-        public isBasvurusuGuncelleProxyRequest(JobServiceWcf.IsBasvurusu isBasvurusu, long basvuruNo)
-        {
-            this.isBasvurusu = isBasvurusu;
-            this.basvuruNo = basvuruNo;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="isBasvurusuGuncelleProxyResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class isBasvurusuGuncelleProxyResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public JobServiceWcf.islemSonucu isBasvurusuGuncelleProxyResult;
-        
-        public isBasvurusuGuncelleProxyResponse()
-        {
-        }
-        
-        public isBasvurusuGuncelleProxyResponse(JobServiceWcf.islemSonucu isBasvurusuGuncelleProxyResult)
-        {
-            this.isBasvurusuGuncelleProxyResult = isBasvurusuGuncelleProxyResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="getBasvurularim", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class getBasvurularimRequest
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string TCNo;
-        
-        public getBasvurularimRequest()
-        {
-        }
-        
-        public getBasvurularimRequest(string TCNo)
-        {
-            this.TCNo = TCNo;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="getBasvurularimResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class getBasvurularimResponse
-    {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public JobServiceWcf.KisiIseAlimTalebi[] getBasvurularimResult;
-        
-        public getBasvurularimResponse()
-        {
-        }
-        
-        public getBasvurularimResponse(JobServiceWcf.KisiIseAlimTalebi[] getBasvurularimResult)
-        {
-            this.getBasvurularimResult = getBasvurularimResult;
-        }
+        System.Threading.Tasks.Task<JobWcfService.KisiIseAlimTalebi[]> getBasvurularimAsync(string TCNo);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
-    public interface IService1Channel : JobServiceWcf.IService1, System.ServiceModel.IClientChannel
+    public interface IService1Channel : JobWcfService.IService1, System.ServiceModel.IClientChannel
     {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
-    public partial class Service1Client : System.ServiceModel.ClientBase<JobServiceWcf.IService1>, JobServiceWcf.IService1
+    public partial class Service1Client : System.ServiceModel.ClientBase<JobWcfService.IService1>, JobWcfService.IService1
     {
         
         /// <summary>
@@ -1811,54 +1621,54 @@ namespace JobServiceWcf
         {
         }
         
-        public JobServiceWcf.GetDataResponse GetData(JobServiceWcf.GetDataRequest request)
+        public JobWcfService.iseAlimTalebi[] GetData()
         {
-            return base.Channel.GetData(request);
+            return base.Channel.GetData();
         }
         
-        public System.Threading.Tasks.Task<JobServiceWcf.GetDataResponse> GetDataAsync(JobServiceWcf.GetDataRequest request)
+        public System.Threading.Tasks.Task<JobWcfService.iseAlimTalebi[]> GetDataAsync()
         {
-            return base.Channel.GetDataAsync(request);
+            return base.Channel.GetDataAsync();
         }
         
-        public JobServiceWcf.GetDataUsingDataContractResponse GetDataUsingDataContract(JobServiceWcf.GetDataUsingDataContractRequest request)
+        public JobWcfService.CompositeType GetDataUsingDataContract(JobWcfService.CompositeType composite)
         {
-            return base.Channel.GetDataUsingDataContract(request);
+            return base.Channel.GetDataUsingDataContract(composite);
         }
         
-        public System.Threading.Tasks.Task<JobServiceWcf.GetDataUsingDataContractResponse> GetDataUsingDataContractAsync(JobServiceWcf.GetDataUsingDataContractRequest request)
+        public System.Threading.Tasks.Task<JobWcfService.CompositeType> GetDataUsingDataContractAsync(JobWcfService.CompositeType composite)
         {
-            return base.Channel.GetDataUsingDataContractAsync(request);
+            return base.Channel.GetDataUsingDataContractAsync(composite);
         }
         
-        public JobServiceWcf.isBasvurusuEkleProxyResponse isBasvurusuEkleProxy(JobServiceWcf.isBasvurusuEkleProxyRequest request)
+        public JobWcfService.islemSonucu isBasvurusuEkleProxy(JobWcfService.IsBasvurusu isBasvurusu, long ilanNo)
         {
-            return base.Channel.isBasvurusuEkleProxy(request);
+            return base.Channel.isBasvurusuEkleProxy(isBasvurusu, ilanNo);
         }
         
-        public System.Threading.Tasks.Task<JobServiceWcf.isBasvurusuEkleProxyResponse> isBasvurusuEkleProxyAsync(JobServiceWcf.isBasvurusuEkleProxyRequest request)
+        public System.Threading.Tasks.Task<JobWcfService.islemSonucu> isBasvurusuEkleProxyAsync(JobWcfService.IsBasvurusu isBasvurusu, long ilanNo)
         {
-            return base.Channel.isBasvurusuEkleProxyAsync(request);
+            return base.Channel.isBasvurusuEkleProxyAsync(isBasvurusu, ilanNo);
         }
         
-        public JobServiceWcf.isBasvurusuGuncelleProxyResponse isBasvurusuGuncelleProxy(JobServiceWcf.isBasvurusuGuncelleProxyRequest request)
+        public JobWcfService.islemSonucu isBasvurusuGuncelleProxy(JobWcfService.IsBasvurusuDigerBilgiler isBasvurusu, long basvuruNo)
         {
-            return base.Channel.isBasvurusuGuncelleProxy(request);
+            return base.Channel.isBasvurusuGuncelleProxy(isBasvurusu, basvuruNo);
         }
         
-        public System.Threading.Tasks.Task<JobServiceWcf.isBasvurusuGuncelleProxyResponse> isBasvurusuGuncelleProxyAsync(JobServiceWcf.isBasvurusuGuncelleProxyRequest request)
+        public System.Threading.Tasks.Task<JobWcfService.islemSonucu> isBasvurusuGuncelleProxyAsync(JobWcfService.IsBasvurusuDigerBilgiler isBasvurusu, long basvuruNo)
         {
-            return base.Channel.isBasvurusuGuncelleProxyAsync(request);
+            return base.Channel.isBasvurusuGuncelleProxyAsync(isBasvurusu, basvuruNo);
         }
         
-        public JobServiceWcf.getBasvurularimResponse getBasvurularim(JobServiceWcf.getBasvurularimRequest request)
+        public JobWcfService.KisiIseAlimTalebi[] getBasvurularim(string TCNo)
         {
-            return base.Channel.getBasvurularim(request);
+            return base.Channel.getBasvurularim(TCNo);
         }
         
-        public System.Threading.Tasks.Task<JobServiceWcf.getBasvurularimResponse> getBasvurularimAsync(JobServiceWcf.getBasvurularimRequest request)
+        public System.Threading.Tasks.Task<JobWcfService.KisiIseAlimTalebi[]> getBasvurularimAsync(string TCNo)
         {
-            return base.Channel.getBasvurularimAsync(request);
+            return base.Channel.getBasvurularimAsync(TCNo);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync()

@@ -2,7 +2,7 @@
 using JWTSample.AuxClass;
 using MernisTc;
 //using ServiceReference1;
-using JobServiceWcf;
+using JobWcfService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +23,7 @@ namespace JWTSample.Helpers
         AppSettings _appSettings;
         Mail clsMail = new Mail();
 
-        public WSHelper() { 
+        public WSHelper() {
         }
 
         public WSHelper(VakifDb dbParam, AppSettings appSettings)
@@ -36,17 +36,20 @@ namespace JWTSample.Helpers
 
 
         public ServiceResult<string> wsBasvuruKaydet(IsBasvurusu clsIsBasvuru, long ilanNo)
-        {      
-           
-            
+        {
+
+
             try
             {
                 Service1Client service1Client = new Service1Client();
-                isBasvurusuEkleProxyRequest req = new isBasvurusuEkleProxyRequest();
-                req.isBasvurusu = clsIsBasvuru;
-                req.ilanNo = ilanNo;
-                isBasvurusuEkleProxyResponse resp = service1Client.isBasvurusuEkleProxy(req);
-                islemSonucu res = resp.isBasvurusuEkleProxyResult;
+                //isBasvurusuEkleProxyRequest req = new isBasvurusuEkleProxyRequest();
+                //req.isBasvurusu = clsIsBasvuru;
+                //req.ilanNo = ilanNo;
+                //isBasvurusuEkleProxyResponse resp = service1Client.isBasvurusuEkleProxy(req);
+
+                islemSonucu res = service1Client.isBasvurusuEkleProxy(clsIsBasvuru,ilanNo);
+
+                //islemSonucu res = resp.isBasvurusuEkleProxyResult;
                 if (res.sonucTuruField == sonucTuru.HATA)
                 {
                     return new ServiceResult<string>() { isSuccessfull = true, ResultCode = 1, ResultData = res.sonucTuruField.ToString(), ResultExplanation = res.mesajField.mesaj1Field };
@@ -55,17 +58,41 @@ namespace JWTSample.Helpers
                     return new ServiceResult<string>() { isSuccessfull = true, ResultCode = 0, ResultData = res.mesajField.mesaj1Field, ResultExplanation = "Başvuru Kaydedildi!" };
                 }
 
-              //  return new ServiceResult<string>() { isSuccessfull = true, ResultCode = 0, ResultData = res.mesajField.mesaj1Field, ResultExplanation = "Başvuru Kaydedildi!" };
+                //  return new ServiceResult<string>() { isSuccessfull = true, ResultCode = 0, ResultData = res.mesajField.mesaj1Field, ResultExplanation = "Başvuru Kaydedildi!" };
             }
             catch (Exception Ex)
             {
-                return new ServiceResult<string>() { isSuccessfull = false, ResultCode = 1, ResultData = null, ResultExplanation = "Hata Oluştu!"+Ex.Message };
+                return new ServiceResult<string>() { isSuccessfull = false, ResultCode = 1, ResultData = null, ResultExplanation = "Hata Oluştu!" + Ex.Message };
             }
         }
         //TODO
-        public ServiceResult<string> wsBasvuruGuncelle(IsBasvurusu clsIsBasvuru)
+        public ServiceResult<string> wsBasvuruGuncelle(IsBasvurusuDigerBilgiler clsDigerBilgiler,long basvuruNo)
         {
-            return new ServiceResult<string>() { isSuccessfull = true, ResultCode = 0, ResultData = null, ResultExplanation = "Başvuru Güncellendi!" };
+            try
+            {
+                Service1Client service1Client = new Service1Client();
+                //isBasvurusuGuncelleProxyRequest req = new isBasvurusuGuncelleProxyRequest();
+                //req. = clsDigerBilgiler;
+                //req.ilanNo = ilanNo;
+               // isBasvurusuEkleProxyResponse resp = service1Client.isBasvurusuGuncelleProxy(req);
+                islemSonucu res = service1Client.isBasvurusuGuncelleProxy(clsDigerBilgiler, basvuruNo);// resp.isBasvurusuEkleProxyResult;
+                if (res.sonucTuruField == sonucTuru.HATA)
+                {
+                    return new ServiceResult<string>() { isSuccessfull = true, ResultCode = 1, ResultData = res.sonucTuruField.ToString(), ResultExplanation = res.mesajField.mesaj1Field };
+                }
+                else
+                {
+                    return new ServiceResult<string>() { isSuccessfull = true, ResultCode = 0, ResultData = res.mesajField.mesaj1Field, ResultExplanation = "Başvuru Güncellendi!" };
+                }
+
+                //  return new ServiceResult<string>() { isSuccessfull = true, ResultCode = 0, ResultData = res.mesajField.mesaj1Field, ResultExplanation = "Başvuru Kaydedildi!" };
+            }
+            catch (Exception Ex)
+            {
+                return new ServiceResult<string>() { isSuccessfull = false, ResultCode = 1, ResultData = null, ResultExplanation = "Hata Oluştu!" + Ex.Message };
+            }
+
+           // return new ServiceResult<string>() { isSuccessfull = true, ResultCode = 0, ResultData = null, ResultExplanation = "Başvuru Güncellendi!" };
         }
 
         private static TClient GetService<TClient, TChannel>(string username, string password, string uygulamaKullaniciAdi)
@@ -199,10 +226,10 @@ namespace JWTSample.Helpers
                 MernisAdres.TcKimlikNoSorgulaAdresServisSoapClient.EndpointConfiguration.TcKimlikNoSorgulaAdresServisSoap);
                 MernisAdres.KimlikNoileAdresSorguKriteri[] adresKisi = new MernisAdres.KimlikNoileAdresSorguKriteri[1];
                 //MernisAdres.KisiAdresBilgileriSonucu adresSonuc = new MernisAdres.KisiAdresBilgileriSonucu();
-              //  MernisAdres.KimlikNoileKisiAdresBilgileriSonucu adresSonuc = new MernisAdres.KimlikNoileKisiAdresBilgileriSonucu();
+                //  MernisAdres.KimlikNoileKisiAdresBilgileriSonucu adresSonuc = new MernisAdres.KimlikNoileKisiAdresBilgileriSonucu();
 
                 long TCLong = long.Parse(sTCno);
-               // adresServis.Timeout = 10000;
+                // adresServis.Timeout = 10000;
 
                 adresKisi[0] = new MernisAdres.KimlikNoileAdresSorguKriteri();
                 adresKisi[0].KimlikNo = TCLong;
@@ -220,7 +247,7 @@ namespace JWTSample.Helpers
                 };
 
 
-               MernisAdres.SorgulaResponse adresSonucResp = adresServis.Sorgula(req);
+                MernisAdres.SorgulaResponse adresSonucResp = adresServis.Sorgula(req);
 
                 if (adresSonucResp != null)
                 {
@@ -278,7 +305,7 @@ namespace JWTSample.Helpers
             return sAddress;
         }
 
-      
+
 
         public MernisSorguSonuc CuzdanKontrol(SignupModel model, string sTCno, string SeriNo, bool yeniKimlikSahibi)
         {
@@ -544,14 +571,18 @@ namespace JWTSample.Helpers
         //}
 
 
-        public Application[] BasvuruListesi(string TCNo) {
+        public Application[] BasvuruListesi(string TCNo, NIslemSonuc<DataTable> sonuc) {
             Service1Client service1Client = new Service1Client();
-            getBasvurularimRequest req = new getBasvurularimRequest();
-            req.TCNo = TCNo;
-            getBasvurularimResponse resp = service1Client.getBasvurularim(req);
-            KisiIseAlimTalebi[] lst = resp.getBasvurularimResult;
+            //getBasvurularimRequest req = new getBasvurularimRequest();
+            //req.TCNo = TCNo;
+            //getBasvurularimResponse resp = service1Client.getBasvurularim(req);
 
-            List <Application> resultLst = new List<Application>();
+            KisiIseAlimTalebi[] lst = service1Client.getBasvurularim(TCNo);
+
+
+           // KisiIseAlimTalebi[] lst = resp.getBasvurularimResult;
+
+            List<Application> resultLst = new List<Application>();
 
             for (int c = 0; c < 1; c++)
             {
@@ -564,20 +595,32 @@ namespace JWTSample.Helpers
                     ilAdi = lst[c].iseAlimTalebiField.cityField.ilAdiField,
                     ilceAdi = lst[c].iseAlimTalebiField.districtField.ilceAdiField,
                     baslik = lst[c].iseAlimTalebiField.baslikField,
-                    unvan = lst[c].iseAlimTalebiField.unvanField.ToString()
+                    unvan = lst[c].iseAlimTalebiField.unvanField.ToString(),
+                    UniversiteBolum = sonuc.Veri.Rows[0]["UniversiteBolum"].ToString(),
+                    CepTelefonu = sonuc.Veri.Rows[0]["CepTelefonu"].ToString(),
+                    EPosta = sonuc.Veri.Rows[0]["EPosta"].ToString(),
+                    EvTelNumarasi = sonuc.Veri.Rows[0]["EvTelefonu"].ToString(),
+                    IsTelNumarasi = sonuc.Veri.Rows[0]["IsTelefonu"].ToString(),
+                    KpssPuani = sonuc.Veri.Rows[0]["KPSSPuan"].ToString(),
+                    TecilTarihi = sonuc.Veri.Rows[0]["TecilTarihi"].ToString(),
+                    AskerlikDurumu = sonuc.Veri.Rows[0]["AskerlikDurumu"].ToString(),
+                    EgitimDurumu = sonuc.Veri.Rows[0]["EgitimDurumu"].ToString(),
+                    KpssGirisYili = sonuc.Veri.Rows[0]["KPSSYil"].ToString(),
+                    MezuniyetTarihi = sonuc.Veri.Rows[0]["MezuniyetTarihi"] != null ? ((DateTime)(sonuc.Veri.Rows[0]["MezuniyetTarihi"])).ToShortDateString() : ""
                 };
                 resultLst.Add(app);
             }
             return resultLst.ToArray();
-        } 
+        }
+    
 
         public IseAlimTalebi[] IlanListesi()
         {
             Service1Client service1Client = new Service1Client();
-            GetDataRequest req = new GetDataRequest();
-            GetDataResponse resp = service1Client.GetData(req);
+           // GetDataRequest req = new GetDataRequest();
+            iseAlimTalebi[] resp = service1Client.GetData();
 
-            iseAlimTalebi[] resultArr = resp.GetDataResult;
+            iseAlimTalebi[] resultArr = resp;
             List<IseAlimTalebi> finArr = new List<IseAlimTalebi>();
 
             for (int c = 0; c < resultArr.Length; c++)

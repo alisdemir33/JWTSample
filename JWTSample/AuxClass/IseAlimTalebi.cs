@@ -1,7 +1,9 @@
-﻿using System;
+﻿using JobWcfService;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using JobWcfService;
 
 namespace JWTSample.AuxClass
 {
@@ -37,7 +39,7 @@ namespace JWTSample.AuxClass
 
         private string districtFieldField;
 
-        private JobServiceWcf.iseAlimTalebiDurumu durumFieldField;
+        private iseAlimTalebiDurumu durumFieldField;
 
         private string ilGerekliFieldField;
 
@@ -269,7 +271,7 @@ namespace JWTSample.AuxClass
         }
 
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired = true)]
-        public JobServiceWcf.iseAlimTalebiDurumu durumField
+        public iseAlimTalebiDurumu durumField
         {
             get
             {

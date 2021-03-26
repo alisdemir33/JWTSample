@@ -1,4 +1,4 @@
-﻿using JobServiceWcf;
+﻿using JobWcfService;
 using JWTSample.AuxClass;
 using System;
 using System.Collections.Generic;
@@ -141,12 +141,12 @@ namespace JWTSample.Helpers
               basvuru.AskerlikDurumu,
               basvuru.EgitimDurumu,
               basvuru.MezuniyetTarihi.ToString(),
-              basvuru.UniversiteBolumu,
+              basvuru.UniversiteBolum,
               basvuru.KpssGirisYili.ToString(),
              basvuru.KpssPuani.ToString(),//  txtKPSSPuan.Text.Replace(".", ",")),
              basvuru.EvTelNumarasi,//  txtEvTel.Text),
              basvuru.IsTelNumarasi,
-             basvuru.CepTelNumarasi,
+             basvuru.CepTelefonu,
              basvuru.EPosta,
              "127.0.0.1",
              basvuru.TecilTarihi.ToString(),
@@ -219,5 +219,19 @@ namespace JWTSample.Helpers
                 return new ServiceResult<string>() { isSuccessfull = false, ResultCode = 0, ResultData = null, ResultExplanation = "Başvuru Kaydedilemedi!" };
             }
         }
+
+        public ServiceResult<string> basvuruGuncelle(IsBasvurusuDigerBilgiler isBasvurusuDigerBilgiler, long basvuruNo)
+        {
+            try
+            {
+                ServiceResult<string> result = wsHelper.wsBasvuruGuncelle(isBasvurusuDigerBilgiler, basvuruNo);
+                return result;
+            }
+            catch (Exception Ex)
+            {
+                return new ServiceResult<string>() { isSuccessfull = false, ResultCode = 0, ResultData = null, ResultExplanation = "Başvuru Güncellenemedi!" };
+            }
+        }
+
     }
 }

@@ -110,7 +110,6 @@ C:\Users\24667\Source\Repos\AlisWebApiRepo\jwt-sample-master\jwt-sample-master\J
 C:\Users\24667\Source\GithubRepo\JWTSample\JWTSample\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\24667\Source\GithubRepo\JWTSample\JWTSample\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\24667\Source\GithubRepo\JWTSample\JWTSample\bin\Debug\netcoreapp3.1\Connected Services\BilesikKutukServis\ConnectedService.json
-C:\Users\24667\Source\GithubRepo\JWTSample\JWTSample\bin\Debug\netcoreapp3.1\Connected Services\JobServiceWcf\ConnectedService.json
 C:\Users\24667\Source\GithubRepo\JWTSample\JWTSample\bin\Debug\netcoreapp3.1\Connected Services\MernisAdres\ConnectedService.json
 C:\Users\24667\Source\GithubRepo\JWTSample\JWTSample\bin\Debug\netcoreapp3.1\Connected Services\MernisTc\ConnectedService.json
 C:\Users\24667\Source\GithubRepo\JWTSample\JWTSample\bin\Debug\netcoreapp3.1\Connected Services\OSYMWsintra\ConnectedService.json
@@ -216,4 +215,5 @@ C:\Users\24667\Source\GithubRepo\JWTSample\JWTSample\obj\Debug\netcoreapp3.1\sta
 C:\Users\24667\Source\GithubRepo\JWTSample\JWTSample\obj\Debug\netcoreapp3.1\JWTSample.dll
 C:\Users\24667\Source\GithubRepo\JWTSample\JWTSample\obj\Debug\netcoreapp3.1\JWTSample.pdb
 C:\Users\24667\Source\GithubRepo\JWTSample\JWTSample\obj\Debug\netcoreapp3.1\JWTSample.genruntimeconfig.cache
+C:\Users\24667\Source\GithubRepo\JWTSample\JWTSample\bin\Debug\netcoreapp3.1\Connected Services\JobWcfService\ConnectedService.json
 C:\Users\24667\Source\GithubRepo\JWTSample\JWTSample\obj\Debug\netcoreapp3.1\JWTSample.csprojAssemblyReference.cache

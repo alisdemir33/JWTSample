@@ -17,7 +17,7 @@ using VakifIlan;
 using System.Configuration;
 using JWTSample.AuxClass;
 using Microsoft.AspNetCore.Http;
-using JobServiceWcf;
+using JobWcfService;
 //using Users = JWTSample.ContosoModels.Users;
 
 namespace JWTSample.Services.User
@@ -439,14 +439,14 @@ namespace JWTSample.Services.User
                 {
                     clsDigerBilgiler.isTelNumarasiField = basvuru.IsTelNumarasi.Replace("'", " ");
                 }
-                if (!string.IsNullOrEmpty(basvuru.CepTelNumarasi))
+                if (!string.IsNullOrEmpty(basvuru.CepTelefonu))
                 {
-                    clsDigerBilgiler.cepTelNumarasiField = basvuru.CepTelNumarasi.Replace("'", " ");
+                    clsDigerBilgiler.cepTelNumarasiField = basvuru.CepTelefonu.Replace("'", " ");
                 }
 
                 clsDigerBilgiler.kpssGirisYiliField = Convert.ToInt32(basvuru.KpssGirisYili);
                 clsDigerBilgiler.kpssPuaniField = Convert.ToDouble(basvuru.KpssPuani); //76,44835
-                clsDigerBilgiler.universiteBolumuField = basvuru.UniversiteBolumu.Replace("'", " ").ToUpper(clsCulture);               
+                clsDigerBilgiler.universiteBolumuField = basvuru.UniversiteBolum.Replace("'", " ").ToUpper(clsCulture);               
 
                 clsDigerBilgiler.egitimDurumuField = Util.getEgitimDurumEnumFromStr(basvuru.EgitimDurumu);
                 clsDigerBilgiler.egitimDurumuFieldSpecified = true;
@@ -466,7 +466,15 @@ namespace JWTSample.Services.User
                 clsIsBasvuru.digerBilgilerField = clsDigerBilgiler;
                 clsIsBasvuru.kisiselBilgilerField = clsKisiselBilgiler;
 
-                ServiceResult<string> kaydetResult = bHelper.basvuruKaydet(clsIsBasvuru, basvuru.IlanID);
+                ServiceResult<string> kaydetResult=null;
+                if (basvuru.BasvuruID == 0)
+                {
+                     kaydetResult = bHelper.basvuruKaydet(clsIsBasvuru, basvuru.IlanID);
+                }
+                else//Guncelleme
+                {
+                     kaydetResult = bHelper.basvuruGuncelle(clsIsBasvuru.digerBilgilerField, basvuru.BasvuruID);
+                }
 
                 bHelper.UpdatePersonData(basvuru, adresResult.ResultData);
 
@@ -490,7 +498,8 @@ namespace JWTSample.Services.User
                
                  var sonuc = db.GetKullanici(personelID);
                 string TCNo =  sonuc.Veri.Rows[0]["TCKimlikNo"].ToString();
-                Application[] liste = wsHelper.BasvuruListesi(TCNo);              
+
+                Application[] liste = wsHelper.BasvuruListesi(TCNo, sonuc);              
 
                 return new ServiceResult<Application[]>() { isSuccessfull = true, ResultCode = 1, ResultData = liste, ResultExplanation = "Liste Başarılı" };
             }

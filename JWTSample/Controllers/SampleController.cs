@@ -110,7 +110,7 @@ namespace JWTSample.Controllers
             ServiceResult<Application[]> result = null;
             try
             {
-                result = _userService.BasvuruListesi("5");
+                result = _userService.BasvuruListesi(personelID);
                 return Ok(result);
             }
             catch (Exception exc)

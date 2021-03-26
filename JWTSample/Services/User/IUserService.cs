@@ -1,4 +1,4 @@
-﻿using JobServiceWcf;
+﻿using JobWcfService;
 using JWTSample.Auth;
 using JWTSample.AuxClass;
 using JWTSample.Models;

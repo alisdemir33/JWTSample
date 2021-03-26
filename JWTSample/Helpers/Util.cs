@@ -1,4 +1,4 @@
-﻿using JobServiceWcf;
+﻿using JobWcfService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -219,7 +219,7 @@ namespace VakifIlan
         public static cinsiyet getCinsiyetEnumFromStr(string cinsiyet)
         {
 
-            return cinsiyet.ToUpper() == "ERKEK" ? JobServiceWcf.cinsiyet.ERKEK : JobServiceWcf.cinsiyet.KADIN;
+            return cinsiyet.ToUpper() == "ERKEK" ? JobWcfService.cinsiyet.ERKEK : JobWcfService.cinsiyet.KADIN;
         }
     }
 }
